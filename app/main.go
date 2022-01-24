@@ -7,6 +7,8 @@ import (
 	"os"
 
 	"parser-service/handlers"
+
+	gorillaHandlers "github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"
 )
@@ -20,9 +22,15 @@ func init() {
 	}
 }
 
+// Request logging middleware using gorilla logging handler
+func loggingMiddleware(next http.Handler) http.Handler {
+	return gorillaHandlers.LoggingHandler(os.Stdout, next)
+}
+
 func main() {
 	// Initialize mux router
 	router := mux.NewRouter()
+	router.Use(loggingMiddleware)
 	router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 		fmt.Fprintf(w, "Welcome to GoLang text parser")
