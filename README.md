@@ -56,6 +56,7 @@ parser --path path/to/file.txt
 ```
 
 For API documentation read: https://github.com/pdhagat-git/golang-test-task/tree/main/app.
-For CLI documentation read: 
+
+For CLI documentation read: https://github.com/pdhagat-git/golang-test-task/tree/main/parser-cli
 ## Licence
 [![MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
