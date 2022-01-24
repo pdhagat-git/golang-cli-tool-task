@@ -1,4 +1,4 @@
-module app
+module parser-service
 
 go 1.13
 
