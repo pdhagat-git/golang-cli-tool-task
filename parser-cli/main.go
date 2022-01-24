@@ -10,6 +10,7 @@ import (
 	"path/filepath"
 
 	"github.com/joho/godotenv"
+	"github.com/urfave/cli/v2"
 )
 
 // Load environment variables
@@ -79,10 +80,31 @@ func readFile(filePath string) string {
 }
 
 func main() {
+	var filePath string
 
-	//Print word occurences in file
-	data := readFile(os.Getenv("FILE_PATH"))
-	topWords := getTopWords(data)
-	log.Println(topWords)
+	// Initialize cli app and define flags
+	app := &cli.App{
+		Name:  "Parser",
+		Usage: "Parse files and return word count",
+		Flags: []cli.Flag{
+			&cli.StringFlag{
+				Name:        "path",
+				Usage:       "path to text file",
+				EnvVars:     []string{"FILE_PATH"}, // Default file path set from env
+				Destination: &filePath,
+			},
+		},
+		Action: func(c *cli.Context) error {
+			text := readFile(filePath)
+			topWords := getTopWords(text)
+			log.Println(topWords)
+			return nil
+		},
+	}
 
+	// Run cli app
+	err := app.Run(os.Args)
+	if err != nil {
+		log.Fatal("Error: Unable to start app: ", err)
+	}
 }
