@@ -1,14 +1,14 @@
 # Parser Service
 
 ## Description
-API server to parse text files and return word occurences.
+API server to parse text files and return word occurrences.
 
 ## Installation
 If you dont have a Golang setup, install go and setup the environment: 
 
 Install [Go](https://go.dev/doc/install) as given in the official documentation.
 
-Set GOPATH and update Path environment variable
+Set GOPATH and update Path environment variable.
 
 ```bash
 export GOPATH=path/to/go/working/directory
@@ -42,13 +42,13 @@ Install curl to make http requests over command line.
 sudo apt install curl 
 ```
 
-Get occurences of all words in text.
+Get occurrences of all words in text.
 
 ```bash
 curl -d '{"data": "Your text"}' -H 'Content-Type:application/json' http://localhost:PORT/api/v1/parser/wordCount
 ```
 
-Get top 10 word occurences in text.
+Get top 10 word occurrences in text.
 
 ```bash
 curl -d '{"data": "Your text"}' -H 'Content-Type:application/json' http://localhost:PORT/api/v1/parser/topWordCount

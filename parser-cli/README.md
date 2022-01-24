@@ -1,14 +1,14 @@
 # Parser CLI
 
 ## Description
-CLI tool to get word occurences in text.
+CLI tool to get top 10 word occurrences in text.
 
 ## Installation
 If you dont have a Golang setup, install go and setup the environment: 
 
 Install [Go](https://go.dev/doc/install) as given in the official documentation.
 
-Set GOPATH and update Path environment variable
+Set GOPATH and update Path environment variable.
 
 ```bash
 export GOPATH=path/to/go/working/directory
@@ -23,9 +23,9 @@ go mod download
 ```
 
 ## Usage
-Make sure the api server is running. Please visit: https://github.com/pdhagat-git/golang-test-task/tree/main/app
+Make sure the api server is running. Please visit: https://github.com/pdhagat-git/golang-test-task/tree/main/app.
 
-Create a .env file in parser cli root folder and set the FILE_PATH and API_URL environment variables. Make sure FILE_PATH(optional) points to a .txt file and API_URL points to "/api/v1/parser/topWordCount" service
+Create a .env file in parser cli root folder and set the FILE_PATH and API_URL environment variables. Make sure FILE_PATH(optional) points to a .txt file and API_URL points to "/api/v1/parser/topWordCount" service.
 
 ```bash
 cp .env.example .env
