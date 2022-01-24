@@ -30,6 +30,9 @@ func main() {
 
 	// Define paths and call to handlers package
 	router.HandleFunc("/api/v1/parser/wordCount", handlers.WordCount).Methods("POST")
+	router.HandleFunc("/api/v1/parser/topWordCount", handlers.TopWordsCount).Methods("POST")
+
+	// Start server
 	log.Printf("Server listening on port: %s", os.Getenv("PORT"))
 	log.Fatalln(http.ListenAndServe(fmt.Sprintf(":%s", os.Getenv("PORT")), router))
 }
